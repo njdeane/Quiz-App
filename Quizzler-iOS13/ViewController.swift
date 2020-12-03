@@ -29,8 +29,22 @@ class ViewController: UIViewController {
     }
 
     @IBAction func answerButtonPressed(_ sender: UIButton) {
-        questionNumber += 1
-        updateUI()
+        
+        let userAnswer = sender.currentTitle
+        let actualAnswer = quiz[questionNumber][1]
+        
+        if userAnswer == actualAnswer {
+            print("Correct")
+        } else {
+            print("Wrong")
+        }
+        
+        if questionNumber + 1 < quiz.count {
+            questionNumber += 1
+            updateUI()
+        } else {
+            print("max questions reached")
+        }
     }
     
     func updateUI() {
